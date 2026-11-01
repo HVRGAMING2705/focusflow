@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "focusflow_pomodoro_study_timer"
+version = "0.1.0"
+description = "A fully functional Pomodoro timer with session tracking, break management, and a productivity dashboard. No login or registration required."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]

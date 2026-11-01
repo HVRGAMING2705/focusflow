@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+# Secrets — never commit these
+*.pem
+*.key
+.env
+id_rsa*
+credentials*
