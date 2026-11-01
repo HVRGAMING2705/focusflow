@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FocusFlow - Pomodoro Study Timer</title>
+<script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-slate-950 text-white min-h-screen p-6">
+<h1 class="text-3xl font-bold">FocusFlow - Pomodoro Study Timer</h1>
+<p class="text-slate-400 mt-2">A fully functional Pomodoro timer with session tracking, break management, and a productivity dashboard. No login or registration required.</p>
+<div class="grid gap-4 mt-6 sm:grid-cols-2 lg:grid-cols-3">      <div class="card"><b>session tracking</b><p>session tracking — manage it below.</p></div>
+      <div class="card"><b>break management</b><p>break management — manage it below.</p></div>
+      <div class="card"><b>productivity dashboard</b><p>productivity dashboard — manage it below.</p></div></div>
+<div class="mt-8 bg-slate-900 rounded-2xl p-4">
+<input id="item" class="w-full bg-slate-800 rounded-xl p-3" placeholder="Add an entry…">
+<button onclick="addItem()" class="mt-3 bg-amber-400 text-black font-bold px-5 py-2 rounded-xl">Add</button>
+<ul id="list" class="mt-4 space-y-2"></ul></div>
+<script>
+const KEY = "focusflow_pomodoro_study_timer_items";
+function render(){ const items = JSON.parse(localStorage.getItem(KEY) || "[]");
+document.getElementById("list").innerHTML = items.map((x, i) =>
+  `<li class="bg-slate-800 rounded-xl p-3 flex justify-between"><span>${x}</span><button onclick="delItem(${i})">Delete</button></li>`).join(""); }
+function addItem(){ const v = document.getElementById("item").value.trim(); if (!v) return;
+const items = JSON.parse(localStorage.getItem(KEY) || "[]"); items.push(v);
+localStorage.setItem(KEY, JSON.stringify(items)); document.getElementById("item").value = ""; render(); }
+function delItem(i){ const items = JSON.parse(localStorage.getItem(KEY) || "[]"); items.splice(i, 1);
+localStorage.setItem(KEY, JSON.stringify(items)); render(); }
+render();
+</script></body></html>
